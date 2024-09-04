@@ -75,7 +75,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           Linking.openURL('tel:28710407').catch((err) => console.error('Error opening dialer:', err));
         }}
       >
-        <Text style={styles.phoneButton}>ALERT</Text>
+        <Text style={styles.phoneButton}>Hilfe</Text>
       </CustomTabBarButton>
     </View>
   );

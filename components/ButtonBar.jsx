@@ -6,7 +6,7 @@ const ButtonBar = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button}>
-        <Ionicons name="home-outline" size={30} color="#fff" />
+        <Ionicons name="call" size={30} color="#fff" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
         <MaterialIcons name="add-box" size={30} color="#fff" />
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff', // Light background color
     padding: 15,
     borderRadius: 20,
-    width: '80%',
+    width: '90%',
     alignSelf: 'center',
     elevation: 5,
   },

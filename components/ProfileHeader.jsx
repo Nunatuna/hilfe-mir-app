@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Assuming you are using Expo for the location icon
 
 const ProfileCard = () => {
@@ -36,10 +36,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff', // Light background color
     borderRadius: 20,
     padding: 20,
-    alignItems: 'center',
-    width: 300,
+    alignItems: 'flex-start',
+    width: '90%',
     elevation: 5,
-    width: '80%',
   },
   profileContainer: {
     flexDirection: 'row',
@@ -94,15 +93,15 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   tellFriendsButton: {
+    width: '100%', // Full width button
     backgroundColor: '#FFCCE5', // Light pink background for the button
     borderRadius: 20,
     paddingVertical: 10,
-    paddingHorizontal: 30,
-    alignItems: 'center',
   },
   buttonText: {
     color: '#FFF',
     fontSize: 16,
+    textAlign: 'center', // Center the text inside the button
   },
 });
 

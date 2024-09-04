@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import ProfileCard from '../components/ProfileHeader';
 import ButtonBar from '../components/ButtonBar';
 import { LinearGradient } from 'expo-linear-gradient'; // Import LinearGradient
+import ProfileDrawerComponent from '../components/ProfileDrawer';
 
 const ProfileScreen = () => {
   return (
@@ -16,11 +17,10 @@ const ProfileScreen = () => {
       >
         <ProfileCard />
         <ButtonBar />
-        <View style={styles.drawer}>
+        <ProfileDrawerComponent/>
           <LinearGradient
             colors={['#D5E8FF', '#D9D5FF', '#B7BFFF']} // Adjusted gradient colors based on the provided image
             style={styles.container}/>
-        </View>
       </ScrollView>
     </LinearGradient>
   );
@@ -32,13 +32,11 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
+    justifyContent: 'flex-end',
     gap: 20,
     paddingTop: 60,
     flexGrow: 1, // Ensure the ScrollView takes up the full height
-  },
-  drawer: {
-    padding: 60,
-  },
+  }
 });
 
 export default ProfileScreen;

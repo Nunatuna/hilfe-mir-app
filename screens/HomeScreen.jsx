@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Modal } from 'react-native';
 import { Menu, Divider, Provider } from 'react-native-paper';
 import GPSandMapComponent from '../components/GPSandMapComponent';
+import CircleButtonWithModal from '../components/MapModalComponent';
 
 const HomeScreen = () => {
   const [menuVisible, setMenuVisible] = useState(false);
-  const [addresses, setAddresses] = useState(['Hjem', 'Asbjørns Crib', 'Olivers hule']);
+  const [addresses, setAddresses] = useState(['Home', 'Asbjørns Crib', 'Olivers hule']);
   const [modalVisible, setModalVisible] = useState(false);
   const [newAddress, setNewAddress] = useState('');
 
@@ -28,6 +29,7 @@ const HomeScreen = () => {
   return (
     <Provider>
       <View style={styles.container}>
+        <CircleButtonWithModal></CircleButtonWithModal>
         <GPSandMapComponent style={styles.map} />
 
         <View style={styles.buttonContainer}>
@@ -40,7 +42,7 @@ const HomeScreen = () => {
                 onPress={openMenu}
                 style={styles.button}
               >
-                <Text style={styles.buttonText}>Hvor skal du hen?</Text>
+                <Text style={styles.buttonText}>Where are you heading?</Text>
               </TouchableOpacity>
             }
             style={styles.menu}
