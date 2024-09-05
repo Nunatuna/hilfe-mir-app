@@ -6,10 +6,12 @@ import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 import { LinearGradient } from 'expo-linear-gradient';
 
+// Main GPS/Map component
 export default function GPSandMapComponent() {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
+  // Fetches the current location of the phone which also asks for permission to use the GPS
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -18,6 +20,7 @@ export default function GPSandMapComponent() {
         return;
       }
 
+      // Get the coordinates, with a "high accuracy"
       let { coords } = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.High,
       });
@@ -25,10 +28,7 @@ export default function GPSandMapComponent() {
     })();
   }, []);
 
-  const customMapStyle = [
-    // Add your custom styles here if needed
-  ];
-
+  // The map which takes the coordinates and finds the location on a map
   return (
     <View style={styles.mapContainer}>
       {errorMsg ? (
@@ -37,7 +37,6 @@ export default function GPSandMapComponent() {
         <View style={styles.mapWrapper}>
           <MapView
             style={styles.map}
-            customMapStyle={customMapStyle}
             region={{
               latitude: location.latitude,
               longitude: location.longitude,
@@ -45,6 +44,7 @@ export default function GPSandMapComponent() {
               longitudeDelta: 0.01,
             }}
           >
+            {/* The marker on the map so you can see where you are located */}
             <Marker
               coordinate={{
                 latitude: location.latitude,
@@ -61,6 +61,7 @@ export default function GPSandMapComponent() {
           />
         </View>
       ) : (
+        // Loading text while the app fecthes the coordinates
         <Text>Fetching location...</Text>
       )}
     </View>

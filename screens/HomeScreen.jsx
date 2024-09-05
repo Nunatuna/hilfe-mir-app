@@ -10,16 +10,18 @@ const HomeScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [newAddress, setNewAddress] = useState('');
 
-  const openMenu = () => setMenuVisible(true);
-  const closeMenu = () => setMenuVisible(false);
 
-  const openModal = () => setModalVisible(true);
-  const closeModal = () => {
+  const openMenu = () => setMenuVisible(true);  //Function to open the menu/address modal
+  const closeMenu = () => setMenuVisible(false);  //Fucntion to close the menu/address modal
+
+
+  const openModal = () => setModalVisible(true);  //Fucntion to open the modal to add a new address
+  const closeModal = () => { //Function to close the modal
     setModalVisible(false);
     setNewAddress('');
   };
 
-  const handleAddAddress = () => {
+  const handleAddAddress = () => { //Function to add the new address to the list
     if (newAddress.trim()) {
       setAddresses([...addresses, newAddress.trim()]);
       closeModal();
@@ -29,11 +31,14 @@ const HomeScreen = () => {
   return (
     <Provider>
       <View style={styles.container}>
-        <CircleButtonWithModal></CircleButtonWithModal>
+        {/* The friends status component, appears as the */}
+        <CircleButtonWithModal></CircleButtonWithModal> 
+
+        {/* The map and location component */}
         <GPSandMapComponent style={styles.map} />
 
+        {/* Main Button with Dropdown Menu */}
         <View style={styles.buttonContainer}>
-          {/* Main Button with Dropdown Menu */}
           <Menu
             visible={menuVisible}
             onDismiss={closeMenu}
@@ -82,6 +87,7 @@ const HomeScreen = () => {
                 value={newAddress}
                 onChangeText={setNewAddress}
               />
+              {/* The "add" or "cancel buttons when adding a new address" */}
               <View style={styles.modalButtons}>
                 <TouchableOpacity style={styles.modalButtonAdd} onPress={handleAddAddress}>
                   <Text style={styles.modalButtonText}>Add</Text>

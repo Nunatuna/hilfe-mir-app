@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Assuming you are using Expo for the location icon
 
+
+// The main component
 const ProfileCard = () => {
   return (
     <View style={styles.container}>

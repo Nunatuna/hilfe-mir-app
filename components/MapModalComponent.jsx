@@ -2,25 +2,29 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Arrow and close icons from Ionicons
 
+// The main friends activity modal on the home screen
 const CircleButtonWithModal = () => {
+  // Makes the modal hidden by default
   const [modalVisible, setModalVisible] = useState(false);
 
+  // Opens the modal when the button is pressed
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
 
+  // The close button in the modal to close it again
   const closeModal = () => {
     setModalVisible(false);
   };
 
   return (
     <View style={styles.container}>
-      {/* Circle Button */}
+      {/* The Circle Button */}
       <TouchableOpacity style={styles.circleButton} onPress={toggleModal}>
         <Ionicons name="arrow-up" size={24} color="#FFADE0" />
       </TouchableOpacity>
 
-      {/* Modal */}
+      {/* The Modal */}
       <Modal
         transparent={true}
         animationType="slide"
@@ -29,12 +33,12 @@ const CircleButtonWithModal = () => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            {/* Close Button */}
+            {/* The Close Button */}
             <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
               <Ionicons name="close" size={24} color="black" />
             </TouchableOpacity>
 
-            {/* Scrollable bubbles */}
+            {/* The Scrollable friend bubbles */}
             <ScrollView
               horizontal
               contentContainerStyle={styles.scrollViewContent}
@@ -79,13 +83,14 @@ const CircleButtonWithModal = () => {
               </View>
             </ScrollView>
 
-            {/* Fixed content below bubbles */}
+            {/* The content underneath the friend bubbles, which is not scrollable */}
             <View style={styles.activityBar}>
               <Text style={styles.activeName}>Ronja</Text>
               <Text style={styles.activeStatus}>
                 Heading home <Text style={styles.activeTime}>- last active 20:38</Text>
               </Text>
             </View>
+            {/* The 3 alert buttons */}
             <View style={styles.alertBtnContainer}>
               <TouchableOpacity style={[styles.alertBtn, styles.alertBtnMargin]}><Text style={styles.alertText}>Alert</Text></TouchableOpacity>
               <TouchableOpacity style={[styles.alertBtn, styles.alertBtnMargin]}><Text style={styles.alertText}>Check Up</Text></TouchableOpacity>

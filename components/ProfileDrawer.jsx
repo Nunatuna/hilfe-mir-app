@@ -6,11 +6,14 @@ import FriendLocationTile2 from './FriendLocationComponent2';
 import CreatePostModal from './CreatePostModal';
 import { Ionicons, MaterialIcons, FontAwesome5 } from '@expo/vector-icons'; // Import necessary icon libraries
 
+
+// The main component
 const ProfileDrawerComponent = () => {
   const [activeTab, setActiveTab] = useState('Profile');
   const [selectedEmotion, setSelectedEmotion] = useState(null);
   const [comment, setComment] = useState('');
 
+  // The preset locations
   const emotions = ['Happy', 'Normal', 'Nervous',  'Scared', 'Drunk', 'Angry'];
 
   // Color mapping for each emotion
@@ -23,9 +26,9 @@ const ProfileDrawerComponent = () => {
     Angry: '#ED3A3A', // Red
   };
 
+  {/* The Tab Bar to switch between "profile" and "friends" */}
   return (
     <View style={styles.container}>
-      {/* Tab Bar */}
       <View style={styles.tabBar}>
         <TouchableOpacity
           style={[styles.tabButton, activeTab === 'Profile' && styles.activeTab]}
@@ -78,7 +81,7 @@ const ProfileDrawerComponent = () => {
             </TouchableOpacity>
           </View>
           
-          {/* Picture of the Day */}
+          {/* Picture of the Day component */}
           <CreatePostModal></CreatePostModal>
 
         </View>
@@ -88,6 +91,7 @@ const ProfileDrawerComponent = () => {
       {/* Friends Tab Content */}
       {activeTab === 'Friends' && (
         <View style={styles.contentContainer}>
+          {/* The friends location/activity tiles */}
           <FriendLocationTile/>
           <FriendLocationTile1/>
           <FriendLocationTile2/>

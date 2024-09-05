@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import { View, Button, Alert, PermissionsAndroid, Platform } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
 
+
+//THIS IS NOT BEING USED!!!
+// Main camera component, which also will also ask for permission to use the camera app
 const CameraButtonComponent = () => {
   useEffect(() => {
     if (Platform.OS === 'android') {
       requestCameraPermission();
     }
   }, []);
-
+  // This asks for permission V
   const requestCameraPermission = async () => {
     try {
       const granted = await PermissionsAndroid.request(
@@ -31,6 +34,7 @@ const CameraButtonComponent = () => {
     }
   };
 
+  // Fucntion to open the camera app using react-native-image-picker
   const openCamera = async () => {
     const options = {
       mediaType: 'photo',
@@ -51,12 +55,6 @@ const CameraButtonComponent = () => {
       Alert.alert('Camera Error', error.message);
     }
   };
-
-  return (
-    <View style={{ padding: 20 }}>
-      <Button title="Open Camera" onPress={openCamera} />
-    </View>
-  );
 };
 
 export default CameraButtonComponent;

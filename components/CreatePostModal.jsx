@@ -4,6 +4,7 @@ import { Ionicons, MaterialIcons, FontAwesome5 } from '@expo/vector-icons'; // I
 import PictureOfTheDay from './CameraComponent';
 import CalendarComponent from './CalendarComponent';
 
+// Main component
 const CreatePostModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
 

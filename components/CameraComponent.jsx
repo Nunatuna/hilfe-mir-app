@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
+
+// Main component
 const PictureOfTheDay = () => {
   const [photoUri, setPhotoUri] = useState(null);
 

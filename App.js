@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -10,7 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 // Create a Tab Navigator
 const Tab = createBottomTabNavigator();
 
-// Custom Tab Bar Button
+// Custom Tab Bar Button, Hilfe button
 const CustomTabBarButton = ({ children, onPress }) => (
   <TouchableOpacity
     style={styles.customTabBarButton}
@@ -20,7 +19,7 @@ const CustomTabBarButton = ({ children, onPress }) => (
   </TouchableOpacity>
 );
 
-// Custom Tab Bar Component
+// Custom Tab Bar Component, to make it easy to style
 const CustomTabBar = ({ state, descriptors, navigation }) => {
   return (
     <View style={styles.tabBar}>
@@ -82,8 +81,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
   );
 };
 
-const Stack = createNativeStackNavigator();
-
+// Main app component - The tab navigator that appears on the two screens :)
 export default function App() {
   return (
     <NavigationContainer>

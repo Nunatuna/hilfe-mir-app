@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-
+// The Sofie version of this component
 // Import the local image
 import mapImage from '../img/map-placeholder.png'; // Adjust the path to your image
 

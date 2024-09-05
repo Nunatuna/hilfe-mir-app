@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet, FlatList } from 'react-native';
 
+
+// Main component of the calendar
 const CalendarComponent = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  // This gets the number of days in september and calculates it, it totals to 30 days
   const daysInMonth = new Date(2024, 9, 0).getDate(); // September 2024
   const weeksInMonth = Math.ceil((new Date(2024, 8, 1).getDay() + daysInMonth) / 7); // Calculate weeks in September 2024
 
+  // This handles the fucntion so you can press each date
   const handleDatePress = (date) => {
     setSelectedDate(date);
     setIsModalVisible(true);
   };
 
+  // This makes the dates into TouchableOpacities
   const renderDate = ({ item }) => (
     <TouchableOpacity style={styles.dateContainer} onPress={() => handleDatePress(item)}>
       <Text style={styles.dateText}>{item}</Text>
@@ -22,6 +27,7 @@ const CalendarComponent = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>September 2024</Text>
+      {/* This flatlist puts the dates into a grid, so it looks like an actual calendar */}
       <FlatList
         data={Array.from({ length: daysInMonth }, (_, i) => i + 1)}
         renderItem={renderDate}
@@ -33,6 +39,7 @@ const CalendarComponent = () => {
         ]}
         style={styles.calendarList}
       />
+      {/* The modal that opens up when you press a date and also says the name of the date in it */}
       <DateModal
         isVisible={isModalVisible}
         onClose={() => setIsModalVisible(false)}
@@ -42,6 +49,7 @@ const CalendarComponent = () => {
   );
 };
 
+// The part of the modal that handles the content of the date
 const DateModal = ({ isVisible, onClose, date }) => (
   <Modal
     visible={isVisible}
