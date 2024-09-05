@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     bottom: 30,
     right: 30,
     zIndex: 1000, // Ensures it hovers above other components
+    elevation: 5,
   },
   modalContainer: {
     flex: 1,

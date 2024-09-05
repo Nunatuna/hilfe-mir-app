@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 // Import the local image
 import mapImage from '../img/map-placeholder.png'; // Adjust the path to your image
 
-const FriendLocationTile = () => {
+const FriendLocationTile1 = () => {
   return (
     <View style={styles.tileContainer}>
       <View style={styles.tileHeader}>
@@ -16,12 +16,12 @@ const FriendLocationTile = () => {
           resizeMode="cover" // This ensures the image covers the area without distortion
         />
         <View style={styles.status}>
-          <Text style={styles.update}>Last updated: 19:24</Text>
-          <Text style={styles.name}>Sofie</Text>
+          <Text style={styles.update}>Last updated: 18:42</Text>
+          <Text style={styles.name}>Aiden</Text>
           <View style={styles.circle}></View>
           <View>
-            <Text style={styles.addressName}>Olivers Hule</Text>
-            <Text style={styles.address}>Brovej 121, 6310 Broager</Text>
+            <Text style={styles.addressName}>Home</Text>
+            <Text style={styles.address}>The Shire, Eriador</Text>
           </View>
         </View>
       </View>
@@ -29,7 +29,7 @@ const FriendLocationTile = () => {
       <View style={styles.tileBottom}>
         <View style={styles.arrivalTime}>
           <Icon name="walking" size={20} color="#FF9D00" />
-          <Text style={styles.arrivalText}>17 min</Text>
+          <Text style={styles.arrivalText}>2 min</Text>
         </View>
 
         <View style={styles.arrivalTime}>
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FriendLocationTile;
+export default FriendLocationTile1;

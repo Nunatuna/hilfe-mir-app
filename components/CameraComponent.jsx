@@ -30,16 +30,9 @@ const PictureOfTheDay = () => {
         <Text style={styles.title}>Picture of the day</Text>
         <Text style={styles.subtitle}>Show your besties what you are doing today</Text>
         <TouchableOpacity style={styles.button} onPress={openCamera}>
-          <Text style={styles.buttonText}>Add a photo</Text>
+          <Text style={styles.buttonText}>Add a post</Text>
         </TouchableOpacity>
       </View>
-
-      {/* Captured Image Display */}
-      {photoUri && (
-        <View style={styles.capturedImageContainer}>
-          <Image source={{ uri: photoUri }} style={styles.capturedImage} />
-        </View>
-      )}
     </View>
   );
 };
@@ -54,6 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 15,
     width: '100%',
+    elevation: 5,
   },
   title: {
     fontSize: 24,
@@ -75,17 +69,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize: 16,
-  },
-  capturedImageContainer: {
-    marginTop: 20,
-    width: 200,
-    height: 200,
-    borderRadius: 15,
-    overflow: 'hidden',
-  },
-  capturedImage: {
-    width: '100%',
-    height: '100%',
   },
 });
 

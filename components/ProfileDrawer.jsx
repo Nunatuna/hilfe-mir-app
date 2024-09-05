@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import FriendLocationTile from './FriendLocationComponent';
-import PictureOfTheDay from './CameraComponent';
+import FriendLocationTile1 from './FriendLocationComponent1';
+import FriendLocationTile2 from './FriendLocationComponent2';
+import CreatePostModal from './CreatePostModal';
 import { Ionicons, MaterialIcons, FontAwesome5 } from '@expo/vector-icons'; // Import necessary icon libraries
-
 
 const ProfileDrawerComponent = () => {
   const [activeTab, setActiveTab] = useState('Profile');
@@ -78,16 +79,18 @@ const ProfileDrawerComponent = () => {
           </View>
           
           {/* Picture of the Day */}
-          <PictureOfTheDay/>
+          <CreatePostModal></CreatePostModal>
+
         </View>
+        
       )}
 
       {/* Friends Tab Content */}
       {activeTab === 'Friends' && (
         <View style={styles.contentContainer}>
           <FriendLocationTile/>
-          <FriendLocationTile/>
-          <FriendLocationTile/>
+          <FriendLocationTile1/>
+          <FriendLocationTile2/>
         </View>
       )}
     </View>
